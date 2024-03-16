@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\pause_stops_M1_stockel_ouest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\Assets\\Script\\DisplayMetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\DisplayMetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "pause_stops_M1_stockel_ouest.cs",
+              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "RelativeToolTip": "Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T16:44:38.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DisplayMetro.cs",
+              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\Assets\\Script\\DisplayMetro.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\DisplayMetro.cs",
+              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\STIB - Metro - Difference schedule and real time\\Assets\\Script\\DisplayMetro.cs",
+              "RelativeToolTip": "Assets\\Script\\DisplayMetro.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-07T13:30:40.156Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
