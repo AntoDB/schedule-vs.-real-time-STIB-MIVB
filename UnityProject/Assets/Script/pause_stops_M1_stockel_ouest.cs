@@ -5,21 +5,14 @@ using UnityEngine;
 public class pause_stops_M1_stockel_ouest : MonoBehaviour
 {
     private Animator animator;
+    private Renderer renderer;
     private GameObject animatedObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Assurez-vous que l'objet animé possède un Animator
         animator = GetComponent<Animator>();
-        if (animator == null)
-        {
-            Debug.LogError("L'objet ne possède pas de composant Animator !");
-            return;
-        }
-
-        // Obtenez la référence de l'objet animé
-        animatedObject = animator.gameObject;
+        renderer = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -33,18 +26,21 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
         //Debug.Log(gameObject.GetInstanceID());
         Debug.Log(s);
 
-        // Arrêtez l'animation
-        animator.enabled = false;
+        if (s == "Kraainem")
+        {
+            // Arrêtez l'animation
+            if (animator != null)
+                animator.enabled = false;
 
-        // Changez la couleur de l'objet en rouge
-        Renderer renderer = animatedObject.GetComponent<Renderer>();
-        if (renderer != null)
-        {
-            renderer.material.color = Color.red;
-        }
-        else
-        {
-            Debug.LogError("L'objet ne possède pas de composant Renderer !");
-        }
+            // Changez la couleur de l'objet en rouge
+            if (renderer != null)
+            {
+                renderer.material.color = Color.red;
+            }
+            else
+            {
+                Debug.LogError("L'objet ne possède pas de composant Renderer !");
+            }
+        }   
     }
 }
