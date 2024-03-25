@@ -26,6 +26,7 @@ public class DisplayMetro : MonoBehaviour
 
         yield return request.SendWebRequest();
 
+        // Elimine les cas d'erreur dans le tris
         if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
         {
             Debug.LogError("Error: " + request.error);
