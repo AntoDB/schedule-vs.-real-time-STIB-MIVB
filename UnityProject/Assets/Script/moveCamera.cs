@@ -52,5 +52,10 @@ public class moveCamera : MonoBehaviour
 
         Vector3 moveDirection = new Vector3(horizontalInput, verticalInput, 0f).normalized;
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+
+        // Limiter la position de la caméra en X
+        Vector3 newPosition = transform.position;
+        newPosition.x = Mathf.Clamp(newPosition.x, -7f, 7f);
+        transform.position = newPosition;
     }
 }
