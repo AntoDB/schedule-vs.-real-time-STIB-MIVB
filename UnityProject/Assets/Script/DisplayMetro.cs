@@ -16,17 +16,40 @@ public class DisplayMetro : MonoBehaviour
     private class VehicleData
     {
         public string lineID;
+        public string directionID;
         public Vector3 position;
 
-        public VehicleData(string lineID, Vector3 position)
+        public VehicleData(string lineID, string directionID, Vector3 position)
         {
             this.lineID = lineID;
+            this.directionID = directionID;
             this.position = position;
         }
     }
 
     // List for storing vehicle data
     private List<VehicleData> vehicles = new List<VehicleData>();
+
+    // Mapping from directionId to type_animation
+    private Dictionary<string, int> directionToAnimation = new Dictionary<string, int>
+    {
+        { "8731", 0 }, // 1 Direction Gare de l'ouest (platform 1)
+        { "8733", 0 }, // 1 Direction Gare de l'ouest (platform 2)
+        { "8161", 1 }, // 1 Direction Stockel (platform 1)
+        { "8162", 1 }, // 1 Direction Stockel (platform 2)
+        { "8641", 2 }, // 5 Direction Erasme (platform 1)
+        { "8642", 2 }, // 5 Direction Erasme (platform 2)
+        { "8261", 3 }, // 5 Direction Hermann-Debroux (platform 1)
+        { "8262", 3 }, // 5 Direction Hermann-Debroux (platform 2)
+        { "8763", 4 }, // 2 Direction Simonis (platform 1) [Include in the line 6]
+        { "8764", 4 }, // 2 Direction Simonis (platform 2) [Include in the line 6]
+        { "8471", 5 }, // 2 Direction Elisabeth (platform 1) [Include in the line 6]
+        { "8472", 5 }, // 2 Direction Elisabeth (platform 2) [Include in the line 6]
+        { "8833", 4 }, // 6 Direction Roi Baudouin (platform 1)
+        { "8834", 4 }, // 6 Direction Roi Baudouin (platform 2)
+        //{ "8471", 5 }, // 6 Direction Elisabeth (platform 1)
+        //{ "8472", 5 }, // 6 Direction Elisabeth (platform 2)
+    };
 
     // Coroutine to fetch data from STIB API
     IEnumerator FetchDataFromSTIB()
@@ -61,7 +84,7 @@ public class DisplayMetro : MonoBehaviour
                     // Get line ID
                     string lineID = result["lineid"].ToString();
 
-                    // Filter lines 1, 2, 5, and 61
+                    // Filter lines 1, 2, 5, and 6
                     if (lineID == "1" || lineID == "2" || lineID == "5" || lineID == "6")
                     {
                         Debug.Log("Line ID: " + lineID);
@@ -73,14 +96,17 @@ public class DisplayMetro : MonoBehaviour
                         foreach (var vehiclePosition in vehiclePositions)
                         {
                             Debug.Log("Vehicle Position: " + vehiclePosition.ToString());
-                            
-                            // Extract pointId and convert it to a Vector3 for the position
+
+                            // // Extract pointId and directionId and convert it to a Vector3 for the position
                             string pointId = vehiclePosition["pointId"].ToString();
+                            string directionID = vehiclePosition["directionId"].ToString();
+
                             // Convert pointId to position (example conversion, replace with actual logic)
                             Vector3 position = PointIdToPosition(pointId);
                             //Debug.Log(position);
+
                             // Store the vehicle data
-                            vehicles.Add(new VehicleData(lineID, position));
+                            vehicles.Add(new VehicleData(lineID, directionID, position));
                         }
                     }
                 }
@@ -97,7 +123,16 @@ public class DisplayMetro : MonoBehaviour
     {
         // This is a dummy conversion, replace it with actual logic
         // For example, use a dictionary to map pointId to coordinates
-        return new Vector3(float.Parse(pointId), 0, 0);
+        float parsedValue;
+        if (float.TryParse(pointId, out parsedValue))
+        {
+            return new Vector3(parsedValue, 0, 0);
+        }
+        else
+        {
+            // Handle parsing error, return a default or error position
+            return Vector3.zero;
+        }
     }
 
     // Start is called before the first frame update
@@ -121,7 +156,16 @@ public class DisplayMetro : MonoBehaviour
             Animator animator = newRame.GetComponent<Animator>();
             if (animator != null)
             {
-                animator.SetInteger("type_animation", 0);
+                int typeAnimation;
+                if (directionToAnimation.TryGetValue(vehicle.directionID, out typeAnimation))
+                {
+                    animator.SetInteger("type_animation", typeAnimation);
+                }
+                else
+                {
+                    // Handle case where directionID is not in the dictionary
+                    Debug.LogWarning("Unknown directionID: " + vehicle.directionID);
+                }
             }
         }
     }
