@@ -355,6 +355,13 @@ public class DisplayMetro : MonoBehaviour
         {
             GameObject newRame = Instantiate(rame, vehicle.position, Quaternion.identity);
 
+            // Set the directionID on the instantiated vehicle
+            pause_stops_M1_stockel_ouest pauseStopsScript = newRame.GetComponent<pause_stops_M1_stockel_ouest>();
+            if (pauseStopsScript != null)
+            {
+                pauseStopsScript.SetDirection(vehicle.directionID);
+            }
+
             // Access the Animator and set the type_animation parameter
             Animator animator = newRame.GetComponent<Animator>();
             if (animator != null)

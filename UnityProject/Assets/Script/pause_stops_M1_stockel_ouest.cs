@@ -7,6 +7,7 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
     private Animator animator;
     private Renderer renderer;
     private GameObject animatedObject;
+    private string directionID;
 
     // Start is called before the first frame update
     void Start()
@@ -18,21 +19,28 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // You can use the directionID in your update logic if needed
+    }
 
+    // Method to set the directionID
+    public void SetDirection(string direction)
+    {
+        this.directionID = direction;
     }
 
     public void AtStop(string s)
     {
         //Debug.Log(gameObject.GetInstanceID());
         Debug.Log(s);
+        Debug.Log(directionID);
 
         if (s == "Kraainem")
         {
-            // Arrêtez l'animation
+            // Stop the animation
             if (animator != null)
                 animator.enabled = false;
 
-            // Changez la couleur de l'objet en rouge
+            // Change the color of the object to red
             if (renderer != null)
             {
                 renderer.material.color = Color.red;
@@ -41,6 +49,6 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
             {
                 Debug.LogError("L'objet ne possède pas de composant Renderer !");
             }
-        }   
+        }
     }
 }
