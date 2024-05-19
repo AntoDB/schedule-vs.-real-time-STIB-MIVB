@@ -234,6 +234,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8754", 0f },
                 { "8744", 3.8f },
                 { "8382", 4.6f },
+                { "8371", 5.5f }, // Delacroix (platform 1)
                 { "8372", 5.5f },
                 { "8362", 6.4f },
                 { "8352", 8f },
