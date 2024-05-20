@@ -113,6 +113,17 @@ public class DisplayMetro : MonoBehaviour
                 { "8152", 19f },
                 { "8161", 21f }, // Stockel (platform 1)
                 { "8162", 21f },
+                // Erasme -> Stockel
+                { "8641", 0f }, // Erasme (platform 1)
+                { "8642", 0f },
+                { "8652", 0f },
+                { "8662", 0f },
+                { "8672", 0f },
+                { "8682", 0f },
+                { "8692", 0f },
+                { "8702", 0f },
+                { "8712", 0f },
+                { "8722", 0f },
             }
         },
         { "Train_anim_hermann-debroux_erasme", new Dictionary<string, float>
@@ -148,6 +159,17 @@ public class DisplayMetro : MonoBehaviour
                 { "8651", 25.4f },
                 { "8641", 27f },
                 { "8642", 0f }, // Erasme (platform 2)
+                // Stockel -> Erasme
+                { "8161", 0f },
+                { "8162", 0f }, // Stockel (platform 2)
+                { "8151", 0f },
+                { "8141", 0f },
+                { "8131", 0f },
+                { "8121", 0f },
+                { "8111", 0f },
+                { "8101", 0f },
+                { "8091", 0f },
+                { "8081", 0f },
             }
         },
         { "Train_anim_erasme_hermann-debroux", new Dictionary<string, float>
