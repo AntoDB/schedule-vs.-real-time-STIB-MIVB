@@ -270,6 +270,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8803", 21.6f },
                 { "8813", 22.4f },
                 { "8823", 23.15f },
+                { "8824", 23.15f }, // Heysel (platform 2)  
                 { "8833", 25f },
                 { "8834", 25f }, // Roi Baudouin (platform 2)
             }
@@ -419,6 +420,12 @@ public class DisplayMetro : MonoBehaviour
                 pauseStopsScript.SetDirection(vehicle.directionID);
             }
 
+            // Transmit the pointID to the pause_stops_M1_stockel_ouest script attached to the vehicle (resumes import)
+            if (pauseStopsScript != null)
+            {
+                pauseStopsScript.SetPoint(vehicle.pointID);
+            }
+
             // Access the Animator and set the type_animation parameter
             Animator animator = newRame.GetComponent<Animator>();
             if (animator != null)
@@ -459,12 +466,6 @@ public class DisplayMetro : MonoBehaviour
                                 Debug.Log($"Animation clip name: {clipName}, length: {animationLength}, Animation time: {animationTime}, Normalized time: {normalizedTime}");
                                 animator.Play(state.fullPathHash, -1, normalizedTime);
                                 isAnimationSet = true;
-
-                                // Transmit the pointID to the pause_stops_M1_stockel_ouest script attached to the vehicle (resumes import)
-                                if (pauseStopsScript != null)
-                                {
-                                    pauseStopsScript.SetPoint(vehicle.pointID);
-                                }
                             }
                             else
                             {
