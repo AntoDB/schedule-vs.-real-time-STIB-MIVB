@@ -882,9 +882,9 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.9833333
+  - time: 2
     functionName: AtStop
-    data: Kraainem
+    data: CRAINHEM
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -926,7 +926,7 @@ AnimationClip:
     messageOptions: 0
   - time: 8.016666
     functionName: AtStop
-    data: Josephine-Charlotte
+    data: JOSEPH.-CHARLOTTE
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -938,7 +938,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 10.033334
+  - time: 10.016666
     functionName: AtStop
     data: Merode
     objectReferenceParameter: {fileID: 0}
@@ -947,7 +947,7 @@ AnimationClip:
     messageOptions: 0
   - time: 11
     functionName: AtStop
-    data: Schumann
+    data: Schuman
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -961,7 +961,7 @@ AnimationClip:
     messageOptions: 0
   - time: 13.35
     functionName: AtStop
-    data: Art-Loi
+    data: Arts-Loi
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -982,7 +982,7 @@ AnimationClip:
     messageOptions: 0
   - time: 15.733334
     functionName: AtStop
-    data: "De Brouck\xE8re"
+    data: DE BROUCKERE
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1008,7 +1008,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 19.95
+  - time: 20
     functionName: AtStop
     data: Beekkant
     objectReferenceParameter: {fileID: 0}

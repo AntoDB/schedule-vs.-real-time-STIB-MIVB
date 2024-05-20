@@ -1146,7 +1146,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.4666667
+  - time: 4.5
     functionName: AtStop
     data: Bizet
     objectReferenceParameter: {fileID: 0}
@@ -1155,12 +1155,12 @@ AnimationClip:
     messageOptions: 0
   - time: 5.1666665
     functionName: AtStop
-    data: Veeweide
+    data: Veeweyde
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 5.983333
+  - time: 6
     functionName: AtStop
     data: Saint-Guidon
     objectReferenceParameter: {fileID: 0}
@@ -1190,7 +1190,7 @@ AnimationClip:
     messageOptions: 0
   - time: 10
     functionName: AtStop
-    data: Beekant
+    data: Beekkant
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1218,7 +1218,7 @@ AnimationClip:
     messageOptions: 0
   - time: 14.3
     functionName: AtStop
-    data: "De Brouck\xE8re"
+    data: DE BROUCKERE
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1230,7 +1230,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 15.966667
+  - time: 16
     functionName: AtStop
     data: Parc
     objectReferenceParameter: {fileID: 0}
@@ -1239,7 +1239,7 @@ AnimationClip:
     messageOptions: 0
   - time: 16.533333
     functionName: AtStop
-    data: Art-Loi
+    data: Arts-Loi
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1251,14 +1251,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 18.283333
+  - time: 18.766666
     functionName: AtStop
-    data: Schumann
+    data: Schuman
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 19.983334
+  - time: 20
     functionName: AtStop
     data: Merode
     objectReferenceParameter: {fileID: 0}
@@ -1274,7 +1274,7 @@ AnimationClip:
     messageOptions: 0
   - time: 22
     functionName: AtStop
-    data: "P\xE9tillon"
+    data: Petillon
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1286,7 +1286,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 23.983334
+  - time: 24
     functionName: AtStop
     data: Delta
     objectReferenceParameter: {fileID: 0}
@@ -1309,7 +1309,7 @@ AnimationClip:
     messageOptions: 0
   - time: 26.983334
     functionName: AtStop
-    data: Hermann-Debroux
+    data: Herrmann-Debroux
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

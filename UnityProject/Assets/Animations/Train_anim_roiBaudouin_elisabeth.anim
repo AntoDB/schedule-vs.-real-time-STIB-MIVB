@@ -1299,7 +1299,7 @@ AnimationClip:
     messageOptions: 0
   - time: 5.3166666
     functionName: AtStop
-    data: Pannehuis
+    data: Pannenhuis
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1320,14 +1320,14 @@ AnimationClip:
     messageOptions: 0
   - time: 8
     functionName: AtStop
-    data: Ossegem
+    data: Osseghem
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 9.3
     functionName: AtStop
-    data: Beekant
+    data: Beekkant
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1395,9 +1395,9 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 18.866667
+  - time: 18.766666
     functionName: AtStop
-    data: Art-Loi
+    data: Arts-Loi
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

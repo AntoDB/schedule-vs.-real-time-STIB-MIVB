@@ -208,14 +208,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 7
         value: {x: 5.05, y: 0.4, z: 0}
-        inSlope: {x: 0, y: 0.4948452, z: 0}
-        outSlope: {x: 0, y: 0.4948452, z: 0}
+        inSlope: {x: 0, y: 0.49999994, z: 0}
+        outSlope: {x: 0, y: 0.49999994, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 7.616667
+        time: 7.6
         value: {x: 4.4092855, y: 0.6, z: 0}
         inSlope: {x: -1.0500002, y: 0, z: 0}
         outSlope: {x: -1.0500002, y: 0, z: 0}
@@ -226,8 +226,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 8
         value: {x: 4, y: 0.6, z: 0}
-        inSlope: {x: -0.19528536, y: 0, z: 0}
-        outSlope: {x: -0.19528536, y: 0, z: 0}
+        inSlope: {x: -0.19489789, y: 0, z: 0}
+        outSlope: {x: -0.19489789, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -408,7 +408,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 7.616667
+        time: 7.6
         value: 4.4092855
         inSlope: -1.0500002
         outSlope: -1.0500002
@@ -419,8 +419,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 8
         value: 4
-        inSlope: -0.19528536
-        outSlope: -0.19528536
+        inSlope: -0.19489789
+        outSlope: -0.19489789
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -548,14 +548,14 @@ AnimationClip:
       - serializedVersion: 3
         time: 7
         value: 0.4
-        inSlope: 0.4948452
-        outSlope: 0.4948452
+        inSlope: 0.49999994
+        outSlope: 0.49999994
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 7.616667
+        time: 7.6
         value: 0.6
         inSlope: 0
         outSlope: 0
@@ -702,7 +702,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 7.616667
+        time: 7.6
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1309,7 +1309,7 @@ AnimationClip:
   m_Events:
   - time: 0
     functionName: AtStop
-    data: Hermann-Debroux
+    data: Herrmann-Debroux
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1344,7 +1344,7 @@ AnimationClip:
     messageOptions: 0
   - time: 5
     functionName: AtStop
-    data: "P\xE9tillon"
+    data: Petillon
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1356,7 +1356,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 6.983333
+  - time: 7
     functionName: AtStop
     data: Merode
     objectReferenceParameter: {fileID: 0}
@@ -1365,7 +1365,7 @@ AnimationClip:
     messageOptions: 0
   - time: 8
     functionName: AtStop
-    data: Schumann
+    data: Schuman
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1379,7 +1379,7 @@ AnimationClip:
     messageOptions: 0
   - time: 10.483334
     functionName: AtStop
-    data: Art-Loi
+    data: Arts-Loi
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1400,7 +1400,7 @@ AnimationClip:
     messageOptions: 0
   - time: 12.9
     functionName: AtStop
-    data: "De Brouck\xE8re"
+    data: DE BROUCKERE
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1428,7 +1428,7 @@ AnimationClip:
     messageOptions: 0
   - time: 17
     functionName: AtStop
-    data: Beekant
+    data: Beekkant
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1463,7 +1463,7 @@ AnimationClip:
     messageOptions: 0
   - time: 22.066668
     functionName: AtStop
-    data: Veeweide
+    data: Veeweyde
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
