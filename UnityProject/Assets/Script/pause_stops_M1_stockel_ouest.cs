@@ -169,11 +169,14 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
         }*/
 
         // If instance at the destination -> wait & destroy
-        if ((directionID == "8731" && s == "Gare de l'Ouest") || (directionID == "8162" && s == "Stockel") || ((directionID == "8641" || directionID == "8642") && s == "Erasme") || (directionID == "8262" && s == "Hermann-Debroux") || (directionID == "8763" && s == "Simonis") || ((directionID == "8833" || directionID == "8834") && s == "Roi Baudouin") || (directionID == "8472" && s == "Elisabeth"))
+        //if ((directionID == "8731" && s == "Gare de l'Ouest") || (directionID == "8162" && s == "Stockel") || ((directionID == "8641" || directionID == "8642") && s == "Erasme") || (directionID == "8262" && s == "Hermann-Debroux") || (directionID == "8763" && s == "Simonis") || ((directionID == "8833" || directionID == "8834") && s == "Roi Baudouin") || (directionID == "8472" && s == "Elisabeth"))
+        if (directionID == pointID)
         {
             // Stop the animation
             if (animator != null)
                 animator.enabled = false;
+
+            Debug.Log("DELETE at " + pointID);
 
             // Start the coroutine to destroy the instance after a delay
             StartCoroutine(DestroyAfterDelay(2f));
