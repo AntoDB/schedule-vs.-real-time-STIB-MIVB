@@ -32,26 +32,54 @@ public class DisplayMetro : MonoBehaviour
     // List for storing vehicle data
     private List<VehicleData> vehicles = new List<VehicleData>();
 
-    // Mapping from directionId to type_animation
-    private Dictionary<string, int> directionToAnimation = new Dictionary<string, int>
+    // Nested dictionary with mapping from lineId and directionId to type_animation
+    private Dictionary<string, Dictionary<string, int>> lineDirectionToAnimation = new Dictionary<string, Dictionary<string, int>>
     {
-        { "8731", 0 }, // 1 Direction Gare de l'ouest (platform 1)
-        { "8733", 0 }, // 1 Direction Gare de l'ouest (platform 2)
-        { "8161", 1 }, // 1 Direction Stockel (platform 1)
-        { "8162", 1 }, // 1 Direction Stockel (platform 2)
-        { "8641", 2 }, // 5 Direction Erasme (platform 1)
-        { "8642", 2 }, // 5 Direction Erasme (platform 2)
-        { "8261", 3 }, // 5 Direction Hermann-Debroux (platform 1)
-        { "8262", 3 }, // 5 Direction Hermann-Debroux (platform 2)
-        { "8763", 4 }, // 2 Direction Simonis (platform 1) [Include in the line 6]
-        { "8764", 4 }, // 2 Direction Simonis (platform 2) [Include in the line 6]
-        { "8471", 5 }, // 2 Direction Elisabeth (platform 1) [Include in the line 6]
-        { "8472", 5 }, // 2 Direction Elisabeth (platform 2) [Include in the line 6]
-        { "8833", 4 }, // 6 Direction Roi Baudouin (platform 1)
-        { "8834", 4 }, // 6 Direction Roi Baudouin (platform 2)
-        //{ "8471", 5 }, // 6 Direction Elisabeth (platform 1)
-        //{ "8472", 5 }, // 6 Direction Elisabeth (platform 2)
-        { "8371", 10 }, // 6 Direction Delacroix (platform 1) (haussement d'épaule)
+        { "1", new Dictionary<string, int>
+            {
+                { "8731", 0 }, // 1 Direction Gare de l'ouest (platform 1)
+                { "8733", 0 }, // 1 Direction Gare de l'ouest (platform 2)
+                { "8161", 1 }, // 1 Direction Stockel (platform 1)
+                { "8162", 1 }, // 1 Direction Stockel (platform 2)
+
+                // ----- Special cases ----- //
+                { "8641", 0 }, // 5 Direction Erasme (platform 1)
+                { "8642", 0 }, // 5 Direction Erasme (platform 2)
+            }
+        },
+        { "5", new Dictionary<string, int>
+            {
+                { "8641", 2 }, // 5 Direction Erasme (platform 1)
+                { "8642", 2 }, // 5 Direction Erasme (platform 2)
+                { "8261", 3 }, // 5 Direction Hermann-Debroux (platform 1)
+                { "8262", 3 }, // 5 Direction Hermann-Debroux (platform 2)
+                
+                // ----- Special cases ----- //
+                { "8731", 2 }, // 1 et 5 Direction Gare de l'ouest (platform 1)
+                { "8733", 2 }, // 1 et 5 Direction Gare de l'ouest (platform 2)
+            }
+        },
+        { "2", new Dictionary<string, int>
+            {
+                { "8763", 4 }, // 2 Direction Simonis (platform 1) [Same in the line 6 (this line is included)]
+                { "8764", 4 }, // 2 Direction Simonis (platform 2) [Same in the line 6 (this line is included)]
+                { "8471", 5 }, // 2 Direction Elisabeth (platform 1) [Same in the line 6 (this line is included)]
+                { "8472", 5 }, // 2 Direction Elisabeth (platform 2) [Same in the line 6 (this line is included)]
+
+                // ----- Special cases ----- //
+            }
+        },
+        { "6", new Dictionary<string, int>
+            {
+                { "8833", 4 }, // 6 Direction Roi Baudouin (platform 1)
+                { "8834", 4 }, // 6 Direction Roi Baudouin (platform 2)
+                { "8471", 5 }, // 6 Direction Elisabeth (platform 1)
+                { "8472", 5 }, // 6 Direction Elisabeth (platform 2)
+                
+                // ----- Special cases ----- //
+                { "8371", 5 }, // 6 Direction Delacroix (platform 1)
+            }
+        },
     };
 
     // Mapping from pointId to animation time (in seconds)
@@ -76,7 +104,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8041", 13.2f },
                 { "8031", 13.9f },
                 { "8021", 14.6f },
-                { "8011", 15.7f },              // STIB API stop-details-production call : DE BROUCKERE (not De Brouckï¿½re)
+                { "8011", 15.7f },              // STIB API stop-details-production call : DE BROUCKERE (not De Brouckère)
                 { "8271", 16.6f },
                 { "8281", 17.5f },
                 { "8291", 19f },                // STIB API stop-details-production call : JOSEPH.-CHARLOTTE (not Josephine-Charlotte)
@@ -106,7 +134,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8082", 12f },
                 { "8092", 13f },                // STIB API stop-details-production call : JOSEPH.-CHARLOTTE (not Josephine-Charlotte)
                 { "8102", 14.5f },
-                { "8112", 15.4f },              // STIB API stop-details-production call : DE BROUCKERE (not De Brouckï¿½re)
+                { "8112", 15.4f },              // STIB API stop-details-production call : DE BROUCKERE (not De Brouckère)
                 { "8122", 16.3f },
                 { "8132", 17.1f },
                 { "8142", 18f },
@@ -135,7 +163,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8241", 2.25f },
                 { "8231", 3.02f },
                 { "8221", 3.9f },
-                { "8211", 5f },                 // STIB API stop-details-production call : PETILLON (not Pï¿½tillon)
+                { "8211", 5f },                 // STIB API stop-details-production call : PETILLON (not Pétillon)
                 { "8201", 6f },
                 { "8071", 7f },
                 { "8061", 8f },
@@ -185,7 +213,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8692", 5.1f },
                 { "8702", 6f },
                 { "8712", 6.8f },
-                { "8722", 8f },                 // STIB API stop-details-production call : PETILLON (not Pï¿½tillon)
+                { "8722", 8f },                 // STIB API stop-details-production call : PETILLON (not Pétillon)
                 { "8732", 8.9f },
                 { "8742", 10f },
                 { "8292", 11f },
@@ -391,14 +419,16 @@ public class DisplayMetro : MonoBehaviour
             if (animator != null)
             {
                 int typeAnimation;
-                if (directionToAnimation.TryGetValue(vehicle.directionID, out typeAnimation))
+                Dictionary<string, int> directionToAnimation;
+                if (lineDirectionToAnimation.TryGetValue(vehicle.lineID, out directionToAnimation) &&
+                    directionToAnimation.TryGetValue(vehicle.directionID, out typeAnimation))
                 {
                     animator.SetInteger("type_animation", typeAnimation);
                 }
                 else
                 {
-                    // Handle case where directionID is not in the dictionary
-                    Debug.LogWarning("Unknown directionID: " + vehicle.directionID);
+                    // Handle case where directionID or lineID is not in the dictionary
+                    Debug.LogWarning("Unknown directionID or lineID: " + vehicle.directionID + ", " + vehicle.lineID);
                 }
 
                 // Add a small delay to ensure the animator is ready
