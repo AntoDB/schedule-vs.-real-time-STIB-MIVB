@@ -116,7 +116,6 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
         Debug.Log(directionID);
         Debug.Log("Point ID " + pointID);
 
-        if (s == "Kraainem")
         if (string.IsNullOrEmpty(pointID))
         {
             Debug.LogError("Point ID is not set.");
@@ -152,6 +151,7 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
             Debug.LogError($"Stop data not found for pointID: {pointID}");
         }
 
+        /*if (s == "Kraainem")
         {
             // Stop the animation
             if (animator != null)
@@ -166,7 +166,7 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
             {
                 Debug.LogError("L'objet ne possède pas de composant Renderer !");
             }
-        }
+        }*/
 
         // If instance at the destination -> wait & destroy
         if ((directionID == "8731" && s == "Gare de l'Ouest") || (directionID == "8162" && s == "Stockel") || ((directionID == "8641" || directionID == "8642") && s == "Erasme") || (directionID == "8262" && s == "Hermann-Debroux") || (directionID == "8763" && s == "Simonis") || ((directionID == "8833" || directionID == "8834") && s == "Roi Baudouin") || (directionID == "8472" && s == "Elisabeth"))
