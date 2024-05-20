@@ -423,6 +423,12 @@ public class DisplayMetro : MonoBehaviour
                                 Debug.Log($"Animation clip name: {clipName}, length: {animationLength}, Animation time: {animationTime}, Normalized time: {normalizedTime}");
                                 animator.Play(state.fullPathHash, -1, normalizedTime);
                                 isAnimationSet = true;
+
+                                // Transmit the pointID to the pause_stops_M1_stockel_ouest script attached to the vehicle (resumes import)
+                                if (pauseStopsScript != null)
+                                {
+                                    pauseStopsScript.SetPoint(vehicle.pointID);
+                                }
                             }
                             else
                             {
