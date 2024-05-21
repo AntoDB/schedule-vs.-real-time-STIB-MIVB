@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\assets\\script\\pause_stops_m1_stockel_ouest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\pause_stops_m1_stockel_ouest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|e:\\isib\\master 1\\2\u00E8me quadrimestre\\analyse et visualisation de donn\u00E9es\\projet - diff horaire et real time\\schedule-vs.-real-time-stib-mivb\\unityproject\\assets\\script\\uipanelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\uipanelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|e:\\isib\\master 1\\2\u00E8me quadrimestre\\analyse et visualisation de donn\u00E9es\\projet - diff horaire et real time\\schedule-vs.-real-time-stib-mivb\\unityproject\\assets\\script\\displaymetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\assets\\script\\stationclickhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\stationclickhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\assets\\script\\closepanelbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\closepanelbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\assets\\script\\displaymetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\displaymetro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\assets\\script\\pause_stops_m1_stockel_ouest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\pause_stops_m1_stockel_ouest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B580621-09B4-68CB-B5F4-5B9DD210A60F}|Assembly-CSharp.csproj|E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\assets\\script\\movecamera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,19 +39,55 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "pause_stops_M1_stockel_ouest.cs",
-              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
-              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
-              "RelativeToolTip": "Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAgwJgAAAAAAAAA",
+              "Title": "UIPanelManager.cs",
+              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\UIPanelManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\UIPanelManager.cs",
+              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\UIPanelManager.cs",
+              "RelativeToolTip": "Assets\\Script\\UIPanelManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T12:52:12.993Z",
+              "WhenOpened": "2024-05-20T23:51:10.73Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ClosePanelButton.cs",
+              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\ClosePanelButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\ClosePanelButton.cs",
+              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\ClosePanelButton.cs",
+              "RelativeToolTip": "Assets\\Script\\ClosePanelButton.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T23:38:12.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StationClickHandler.cs",
+              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\StationClickHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\StationClickHandler.cs",
+              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\StationClickHandler.cs",
+              "RelativeToolTip": "Assets\\Script\\StationClickHandler.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAADwvx0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T23:28:40.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "pause_stops_M1_stockel_ouest.cs",
+              "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "RelativeToolTip": "Assets\\Script\\pause_stops_M1_stockel_ouest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAKoAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T12:52:12.993Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "moveCamera.cs",
               "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\moveCamera.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\moveCamera.cs",
@@ -51,16 +99,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DisplayMetro.cs",
               "DocumentMoniker": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\DisplayMetro.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\DisplayMetro.cs",
               "ToolTip": "E:\\ISIB\\Master 1\\2\u00E8me quadrimestre\\Analyse et visualisation de donn\u00E9es\\Projet - diff horaire et real time\\schedule-vs.-real-time-STIB-MIVB\\UnityProject\\Assets\\Script\\DisplayMetro.cs",
               "RelativeToolTip": "Assets\\Script\\DisplayMetro.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAowDkAAAAXAAAA",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAAwIsAAABsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-15T09:49:12.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-15T09:49:12.727Z"
             }
           ]
         }
