@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using Newtonsoft.Json.Linq;
+using System;
 
 public class VehiclePositionUpdater : MonoBehaviour
 {
     private string apiUrl = "https://stibmivb.opendatasoft.com/api/explore/v2.1/catalog/datasets/vehicle-position-rt-production/records?limit=-1";
     private string apiKey = "8351f946e8d149daf4ed2778963c30b4b9706c7944a1a9118bb023aa";
+    public float updateInterval = 15f;
 
     private class VehicleData
     {
@@ -27,6 +29,20 @@ public class VehiclePositionUpdater : MonoBehaviour
 
     private List<VehicleData> vehicles = new List<VehicleData>();
 
+    void Start()
+    {
+        StartCoroutine(UpdateVehiclePositions());
+    }
+
+    IEnumerator UpdateVehiclePositions()
+    {
+        while (true)
+        {
+            yield return StartCoroutine(FetchVehiclePositions());
+            yield return new WaitForSeconds(updateInterval);
+        }
+    }
+
     IEnumerator FetchVehiclePositions()
     {
         UnityWebRequest request = UnityWebRequest.Get(apiUrl);
@@ -37,48 +53,58 @@ public class VehiclePositionUpdater : MonoBehaviour
         if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
         {
             Debug.LogError("Error: " + request.error);
+            yield break;
         }
-        else if (request.result == UnityWebRequest.Result.Success)
+
+        if (request.result == UnityWebRequest.Result.Success)
         {
-            JObject responseJson = JObject.Parse(request.downloadHandler.text);
-            JArray results = (JArray)responseJson["results"];
-
-            if (results != null)
+            try
             {
-                foreach (var result in results)
+                JObject responseJson = JObject.Parse(request.downloadHandler.text);
+                JArray results = (JArray)responseJson["records"];
+
+                if (results != null)
                 {
-                    string lineID = result["fields"]?["lineid"]?.ToString();
-                    if (lineID == null) continue; // Skip if lineID is null
-
-                    if (lineID == "1" || lineID == "2" || lineID == "5" || lineID == "6")
+                    vehicles.Clear(); // Clear the previous data before adding new data
+                    foreach (var result in results)
                     {
-                        var vehiclePositionsToken = result["fields"]?["vehiclepositions"];
-                        if (vehiclePositionsToken == null) continue; // Skip if vehiclePositions is null
+                        string lineID = result["fields"]?["lineid"]?.ToString();
+                        if (lineID == null) continue; // Skip if lineID is null
 
-                        // Check if vehiclePositions is an array
-                        if (vehiclePositionsToken.Type == JTokenType.Array)
+                        if (lineID == "1" || lineID == "2" || lineID == "5" || lineID == "6")
                         {
-                            JArray vehiclePositions = vehiclePositionsToken.ToObject<JArray>();
-                            foreach (var vehiclePosition in vehiclePositions)
+                            var vehiclePositionsToken = result["fields"]?["vehiclepositions"];
+                            if (vehiclePositionsToken == null) continue; // Skip if vehiclePositions is null
+
+                            // Check if vehiclePositions is an array
+                            if (vehiclePositionsToken.Type == JTokenType.Array)
                             {
-                                string pointId = vehiclePosition["pointId"]?.ToString();
-                                string directionID = vehiclePosition["directionId"]?.ToString();
-                                if (pointId == null || directionID == null) continue; // Skip if pointId or directionID is null
+                                JArray vehiclePositions = vehiclePositionsToken.ToObject<JArray>();
+                                foreach (var vehiclePosition in vehiclePositions)
+                                {
+                                    string pointId = vehiclePosition["pointId"]?.ToString();
+                                    string directionID = vehiclePosition["directionId"]?.ToString();
+                                    if (pointId == null || directionID == null) continue; // Skip if pointId or directionID is null
 
-                                Vector3 position = PointIdToPosition(pointId);
-                                vehicles.Add(new VehicleData(lineID, directionID, pointId, position));
+                                    Vector3 position = PointIdToPosition(pointId);
+                                    vehicles.Add(new VehicleData(lineID, directionID, pointId, position));
+                                }
                             }
-                        }
-                        else
-                        {
-                            Debug.LogWarning("Unexpected vehiclepositions type: " + vehiclePositionsToken.Type);
+                            else
+                            {
+                                Debug.LogWarning("Unexpected vehiclepositions type: " + vehiclePositionsToken.Type);
+                            }
                         }
                     }
                 }
+                else
+                {
+                    Debug.LogWarning("No records found in the response.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Debug.LogWarning("No records found in the response.");
+                Debug.LogError("Error parsing JSON: " + ex.Message);
             }
         }
         else
@@ -91,10 +117,5 @@ public class VehiclePositionUpdater : MonoBehaviour
     {
         // Example conversion logic
         return new Vector3(float.Parse(pointId), 0, 0);
-    }
-
-    void Start()
-    {
-        StartCoroutine(FetchVehiclePositions());
     }
 }
