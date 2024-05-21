@@ -274,6 +274,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125087826}
   m_CullTransparentMesh: 1
+--- !u!1 &255494779
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255494780}
+  m_Layer: 5
+  m_Name: realtimeContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &255494780
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255494779}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 316881606}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 480, y: 0}
+  m_SizeDelta: {x: 800, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &316881605
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +343,8 @@ RectTransform:
   - {fileID: 1944070177}
   - {fileID: 1453399335}
   - {fileID: 125087827}
+  - {fileID: 555962615}
+  - {fileID: 255494780}
   m_Father: {fileID: 1428987181}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -591,6 +628,41 @@ MonoBehaviour:
   zoomSpeed: 0.01
   moveSpeed: 5
   mousepadSpeed: 150
+--- !u!1 &555962614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555962615}
+  m_Layer: 5
+  m_Name: scheduleContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &555962615
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555962614}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 316881606}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -480, y: 0}
+  m_SizeDelta: {x: 800, y: 400}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1007223696
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,8 +710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1007223699
 CircleCollider2D:
@@ -723,8 +796,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 1944070177}
+  realtimeContainer: {fileID: 1453399335}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1029912407
 CircleCollider2D:
@@ -808,8 +882,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1183989086
 CircleCollider2D:
@@ -893,8 +968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1309879054
 CircleCollider2D:
@@ -978,8 +1054,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1352944019
 CircleCollider2D:
@@ -1323,8 +1400,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1596021997
 CircleCollider2D:
@@ -1408,8 +1486,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1641038715
 CircleCollider2D:
@@ -1493,8 +1572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
-  scheduleTimetableText: {fileID: 1944070178}
-  realtimeTimetableText: {fileID: 1453399336}
+  scheduleContainer: {fileID: 555962615}
+  realtimeContainer: {fileID: 255494780}
+  timetablePrefab: {fileID: 2500874420465985368, guid: 8ff57eef1fd46a54d9472c96ebad3de6, type: 3}
   panelManager: {fileID: 507500902}
 --- !u!58 &1794009240
 CircleCollider2D:
