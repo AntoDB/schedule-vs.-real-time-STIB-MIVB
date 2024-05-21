@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO; // Importation nécessaire pour File
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
+/*
 public class StopData
 {
     public string gpscoordinates { get; set; }
@@ -65,7 +65,7 @@ public static class StopDataLoader
         }
         return stopDataDict;
     }
-}
+}*/
 
 public class pause_stops_M1_stockel_ouest : MonoBehaviour
 {
