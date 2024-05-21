@@ -45,6 +45,8 @@ public class DisplayMetro : MonoBehaviour
                 // ----- Special cases ----- //
                 { "8641", 0 }, // 5 Direction Erasme (platform 1)
                 { "8642", 0 }, // 5 Direction Erasme (platform 2)
+                { "8071", 0 }, // 1 Direction Merode (platform 1)   Direction Gare de l'ouest (normally)
+                { "8061", 0 }, // 1 Direction Schuman (platform 1)   Direction Gare de l'ouest (normally)
             }
         },
         { "5", new Dictionary<string, int>
@@ -59,6 +61,8 @@ public class DisplayMetro : MonoBehaviour
                 { "8733", 2 }, // 1 et 5 Direction Gare de l'ouest (platform 2)
                 { "8161", 3 }, // 1 Direction Stockel (platform 1) -> Use the Herrmann-Debroux animation
                 { "8162", 3 }, // 1 Direction Stockel (platform 2) -> Use the Herrmann-Debroux animation
+                { "8231", 2 }, // 1 Direction Delta (platform 1)   Direction Erasme (normally)
+                { "8232", 3 }, // 1 Direction Delta (platform 2)   Direction Herrmann-Debroux (normally)
             }
         },
         { "2", new Dictionary<string, int>
@@ -71,6 +75,7 @@ public class DisplayMetro : MonoBehaviour
                 // ----- Special cases ----- //
                 { "8833", 4 }, // 6 Direction Roi Baudouin (platform 1)
                 { "8834", 4 }, // 6 Direction Roi Baudouin (platform 2)
+                { "8382", 5 } // 2 Direction Gare de l'ouest (platform 2)   Direction Elisabeth (normally)
             }
         },
         { "6", new Dictionary<string, int>
@@ -116,6 +121,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8281", 17.5f },
                 { "8291", 19f },                // STIB API stop-details-production call : JOSEPH.-CHARLOTTE (not Josephine-Charlotte)
                 { "8741", 20f },
+                { "8742", 20f }, // Beekkant (platform 2)
                 { "8731", 21f },
                 { "8732", 21f }, // Gare de l'Ouest (platform 2)
                 { "8733", 21f }, // Gare de l'Ouest (platform 3)
