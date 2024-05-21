@@ -7,7 +7,8 @@ public class StationClickHandler : MonoBehaviour
 {
     public GameObject uiPanel; // Reference to the UI panel to display station info
     public Text stationNameText; // Reference to the Text component for displaying station name
-    public Text timetableText; // Reference to the Text component for displaying timetable information
+    public Text scheduleTimetableText; // Reference to the Text component for displaying the schedule timetable information
+    public Text realtimeTimetableText; // Reference to the Text component for displaying the real time timetable information
     public UIPanelManager panelManager;
 
     private string stationName;
@@ -39,8 +40,12 @@ public class StationClickHandler : MonoBehaviour
         stationNameText.text = stationName;
 
         // Example: Fetch timetable information (this should be replaced with actual data fetching)
-        string timetableInfo = "Next trains:\n- Train A: 5 min\n- Train B: 10 min";
-        timetableText.text = timetableInfo;
+        string scheduleTimetableInfo = "Next trains:\n- Train A: 5 min\n- Train B: 10 min";
+        scheduleTimetableText.text = scheduleTimetableInfo;
+
+        // Example: Fetch timetable information (this should be replaced with actual data fetching)
+        string realtimeTimetableInfo = "Next trains:\n- Train A: 5 min\n- Train B: 10 min";
+        realtimeTimetableText.text = realtimeTimetableInfo;
 
         // Show the UI panel
         uiPanel.SetActive(true);
