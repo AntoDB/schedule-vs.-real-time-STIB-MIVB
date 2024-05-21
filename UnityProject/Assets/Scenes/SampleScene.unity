@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 125087829}
   - component: {fileID: 125087828}
   m_Layer: 5
-  m_Name: Button (Legacy)
+  m_Name: CloseButton (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,6 +473,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 316881605}
   closeButton: {fileID: 125087830}
+  stations:
+  - {fileID: 1183989083}
+  - {fileID: 1596021994}
+  - {fileID: 1007223696}
+  - {fileID: 1309879051}
+  - {fileID: 1794009237}
+  - {fileID: 1641038712}
+  - {fileID: 1352944016}
+  - {fileID: 1029912404}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +638,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1007223699
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -712,6 +722,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1029912407
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -795,6 +806,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1183989086
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -878,6 +890,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1309879054
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -961,6 +974,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1352944019
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1225,6 +1239,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1596021997
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1308,6 +1323,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1641038715
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1391,6 +1407,7 @@ MonoBehaviour:
   uiPanel: {fileID: 316881605}
   stationNameText: {fileID: 1583232026}
   timetableText: {fileID: 1944070178}
+  panelManager: {fileID: 507500902}
 --- !u!58 &1794009240
 CircleCollider2D:
   m_ObjectHideFlags: 0
