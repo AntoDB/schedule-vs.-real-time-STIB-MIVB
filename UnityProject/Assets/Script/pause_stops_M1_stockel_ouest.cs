@@ -74,6 +74,7 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
     private GameObject animatedObject;
     private string directionID;
     private string pointID;
+    private bool flagFirstStation;
     private Dictionary<string, StopData> stopDataDict;
 
     // Start is called before the first frame update
@@ -89,6 +90,8 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
         {
             Debug.LogError("Stop data dictionary is empty. Check if the JSON file is correctly loaded and parsed.");
         }
+
+        flagFirstStation = true;
     }
 
     // Update is called once per frame
@@ -115,6 +118,12 @@ public class pause_stops_M1_stockel_ouest : MonoBehaviour
         Debug.Log(s);
         Debug.Log(directionID);
         Debug.Log("Point ID " + pointID);
+
+        // The first placement will always be the terminus, until DisplayMetro moves it to the right station (the 2nd placement).
+        if (flagFirstStation) {
+            flagFirstStation = false;
+            return;
+        }
 
         if (string.IsNullOrEmpty(pointID))
         {
