@@ -57,6 +57,8 @@ public class DisplayMetro : MonoBehaviour
                 // ----- Special cases ----- //
                 { "8731", 2 }, // 1 et 5 Direction Gare de l'ouest (platform 1)
                 { "8733", 2 }, // 1 et 5 Direction Gare de l'ouest (platform 2)
+                { "8161", 3 }, // 1 Direction Stockel (platform 1) -> Use the Herrmann-Debroux animation
+                { "8162", 3 }, // 1 Direction Stockel (platform 2) -> Use the Herrmann-Debroux animation
             }
         },
         { "2", new Dictionary<string, int>
@@ -220,6 +222,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8712", 6.8f },
                 { "8722", 8f },                 // STIB API stop-details-production call : PETILLON (not Pétillon)
                 { "8732", 8.9f },
+                { "8733", 8.9f }, // Gare de l'Ouest (platform 3)
                 { "8742", 10f },
                 { "8292", 11f },
                 { "8282", 12.5f },
