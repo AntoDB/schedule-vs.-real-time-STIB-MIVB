@@ -17,6 +17,7 @@ public class StationClickHandler : MonoBehaviour
     public GameObject timetablePrefab; // Prefab for a timetable entry
     public UIPanelManager panelManager;
     private Dictionary<string, StopData> stopDataDict;
+    private Dictionary<string, List<Tuple<string, string>>> stopTimesIndex;
 
     private string stationName;
 
@@ -31,6 +32,10 @@ public class StationClickHandler : MonoBehaviour
         {
             Debug.LogError("Stop data dictionary is empty. Check if the JSON file is correctly loaded and parsed.");
         }
+
+        // Charger l'index des stop_times
+        string stopTimesFilePath = Path.Combine(Application.dataPath, "Imports/stib_data/schedule_25-05-2024/stop_times.txt");
+        IndexStopTimes(stopTimesFilePath);
     }
 
     void OnMouseDown()
@@ -60,7 +65,7 @@ public class StationClickHandler : MonoBehaviour
 
         Dictionary<string, List<string>> tripIDsByServiceID = GetTripIDsByServiceID(currentServiceIDs);
 
-        // Affichez les tripIDs
+        // Parcourir les tripIDs
         foreach (var kvp in tripIDsByServiceID)
         {
             Debug.Log("Service ID: " + kvp.Key);
@@ -71,19 +76,30 @@ public class StationClickHandler : MonoBehaviour
                 if (stationIDs.Count == 0)
                 {
                     Debug.LogError("No station IDs found for station: " + stationName);
+                    continue;
                 }
 
                 foreach (string stationID in stationIDs)
                 {
-                    List<string> departureTimes = GetDepartureTimesByTripIDAndStopID(tripID, stationID);
-                    foreach (string departureTime in departureTimes)
+                    if (stopTimesIndex.ContainsKey(tripID))
                     {
-                        Debug.Log("Departure Time: " + departureTime);
+                        foreach (var tuple in stopTimesIndex[tripID])
+                        {
+                            if (tuple.Item2 == stationID)
+                            {
+                                Debug.Log("Departure Time: " + tuple.Item1 + " for Stop ID: " + stationID);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError("Trip ID not found in stop times index: " + tripID);
                     }
                 }
             }
         }
     }
+
 
     string[] GetCurrentServiceIDs()
     {
@@ -229,4 +245,46 @@ public class StationClickHandler : MonoBehaviour
 
         return departureTimes;
     }
+
+    void IndexStopTimes(string filePath)
+    {
+        Indexer indexer = new Indexer();
+        stopTimesIndex = indexer.IndexStopTimes(filePath);
+    }
+
+    public class Indexer
+    {
+        public Dictionary<string, List<Tuple<string, string>>> IndexStopTimes(string filePath)
+        {
+            Dictionary<string, List<Tuple<string, string>>> index = new Dictionary<string, List<Tuple<string, string>>>();
+
+            try
+            {
+                string[] stopTimeLines = File.ReadAllLines(filePath);
+                foreach (string line in stopTimeLines)
+                {
+                    string[] fields = line.Split(',');
+                    if (fields.Length >= 4)
+                    {
+                        string tripID = fields[0];
+                        string departureTime = fields[2];
+                        string stopID = fields[3];
+
+                        if (!index.ContainsKey(tripID))
+                        {
+                            index[tripID] = new List<Tuple<string, string>>();
+                        }
+                        index[tripID].Add(new Tuple<string, string>(departureTime, stopID));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error indexing stop times file: " + e.Message);
+            }
+
+            return index;
+        }
+    }
+
 }
