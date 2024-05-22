@@ -66,19 +66,19 @@ public class StationClickHandler : MonoBehaviour
 
         Dictionary<string, List<string>> tripIDsByServiceID = GetTripIDsByServiceID(currentServiceIDs);
         Dictionary<int, List<string>> scheduleByHour = new Dictionary<int, List<string>>();
+        List<string> stationIDs = GetStationIDs(stationName);
+        if (stationIDs.Count == 0)
+        {
+            Debug.LogError("No station IDs found for station: " + stationName);
+        }
 
         // Parcourir les tripIDs
         foreach (var kvp in tripIDsByServiceID)
         {
+            Debug.Log("Service ID: " + kvp.Key);
             foreach (string tripID in kvp.Value)
             {
-                List<string> stationIDs = GetStationIDs(stationName);
-                if (stationIDs.Count == 0)
-                {
-                    Debug.LogError("No station IDs found for station: " + stationName);
-                    continue;
-                }
-
+                Debug.Log("Trip ID: " + tripID);
                 foreach (string stationID in stationIDs)
                 {
                     if (stopTimesIndex.ContainsKey(tripID))
@@ -88,7 +88,9 @@ public class StationClickHandler : MonoBehaviour
                             if (tuple.Item2 == stationID)
                             {
                                 string departureTime = tuple.Item1;
+                                Debug.Log("Departure Time: " + departureTime + " for Stop ID: " + stationID);
                                 int hour = int.Parse(departureTime.Split(':')[0]);
+                                if (hour == 24) { hour = 0; }
                                 string minutesSeconds = departureTime.Substring(3); // Récupère les minutes et secondes
 
                                 if (!scheduleByHour.ContainsKey(hour))
@@ -108,29 +110,17 @@ public class StationClickHandler : MonoBehaviour
             }
         }
 
-        int entryIndex = 0; // Compteur pour suivre les entrées ajoutées
-
         // Ajouter les horaires au conteneur d'affichage
         foreach (var kvp in scheduleByHour)
         {
             string hourText = kvp.Key + "h | " + string.Join(" ", kvp.Value);
-            entryIndex++; // Incrémenter le compteur après chaque ajout
-            AddTimetableEntry(hourText, entryIndex);
+            AddTimetableEntry(hourText);
         }
     }
 
-    void AddTimetableEntry(string entryText, int entryIndex)
+    void AddTimetableEntry(string entryText)
     {
         GameObject timetableEntry = Instantiate(timetablePrefab, scheduleContainer);
-        RectTransform entryTransform = timetableEntry.GetComponent<RectTransform>();
-        if (entryTransform != null)
-        {
-            entryTransform.anchoredPosition = new Vector2(entryTransform.anchoredPosition.x, entryTransform.anchoredPosition.y - (entryIndex * 27)); // Décaler chaque entrée de 27 pixels vers le bas
-        }
-        else
-        {
-            Debug.LogError("Timetable prefab does not have a RectTransform component.");
-        }
 
         Text timetableText = timetableEntry.GetComponent<Text>();
         if (timetableText != null)

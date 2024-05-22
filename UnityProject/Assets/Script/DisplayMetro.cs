@@ -244,7 +244,7 @@ public class DisplayMetro : MonoBehaviour
                 { "8212", 22f },
                 { "8222", 23.2f },
                 { "8232", 24f },
-                { "8242", 24.6f },
+                { "8242", 24.4f },
                 { "8252", 25.4f },
                 { "8261", 27f }, // Hermann-Debreoux (platform 1)
                 { "8262", 27f },
@@ -302,8 +302,9 @@ public class DisplayMetro : MonoBehaviour
                 { "8382", 10f },
                 { "8371", 11f }, // Delacroix (platform 1)
                 { "8372", 11f },
+                { "8361", 12.4f }, // Clémenceau (platform 1)
                 { "8362", 12.4f },
-                { "8352", 13.3f },
+                { "8352", 13.2f },
                 { "8342", 14.2f },
                 { "8332", 14.9f },
                 { "8322", 15.6f },
