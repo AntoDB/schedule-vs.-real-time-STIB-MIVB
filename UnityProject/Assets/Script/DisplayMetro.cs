@@ -75,7 +75,8 @@ public class DisplayMetro : MonoBehaviour
                 // ----- Special cases ----- //
                 { "8833", 4 }, // 6 Direction Roi Baudouin (platform 1)
                 { "8834", 4 }, // 6 Direction Roi Baudouin (platform 2)
-                { "8382", 5 } // 2 Direction Gare de l'ouest (platform 2)   Direction Elisabeth (normally)
+                { "8381", 4 }, // 2 Direction Gare de l'ouest (platform 2)   Direction Simonis / Roi Baudouin (normally)
+                { "8382", 5 }, // 2 Direction Gare de l'ouest (platform 2)   Direction Elisabeth (normally)
             }
         },
         { "6", new Dictionary<string, int>
@@ -89,7 +90,8 @@ public class DisplayMetro : MonoBehaviour
                 { "8763", 4 }, // 2 Direction Simonis (platform 1) [Same in the line 6 (this line is included)]
                 { "8764", 4 }, // 2 Direction Simonis (platform 2) [Same in the line 6 (this line is included)]
                 { "8371", 5 }, // 6 Direction Delacroix (platform 1)
-                { "8382", 5 }, // 6 Stop Gare de l'Ouest - Direction Elisabeth (platform 2)
+                { "8381", 4 }, // 2 Direction Gare de l'ouest (platform 2)   Direction Simonis / Roi Baudouin (normally)
+                { "8382", 5 }, // 2 Direction Gare de l'ouest (platform 2)   Direction Elisabeth (normally)
             }
         },
     };
