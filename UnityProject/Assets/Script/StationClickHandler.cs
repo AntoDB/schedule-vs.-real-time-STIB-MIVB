@@ -60,11 +60,12 @@ public class StationClickHandler : MonoBehaviour
     string[] GetCurrentServiceIDs()
     {
         string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        string currentDayOfWeek = DateTime.Now.DayOfWeek.ToString().ToLower(); // Obtient le jour de la semaine actuel
+
         List<string> serviceIDs = new List<string>();
 
         try
         {
-            Debug.Log("TEST");
             string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/schedule_25-05-2024/calendar.txt");
             string[] calendarLines = File.ReadAllLines(filePath);
             foreach (string line in calendarLines)
@@ -77,7 +78,12 @@ public class StationClickHandler : MonoBehaviour
 
                     if (currentDate.CompareTo(startDate) >= 0 && currentDate.CompareTo(endDate) <= 0)
                     {
-                        serviceIDs.Add(fields[0]);
+                        // Vérifie si le jour de la semaine actuel correspond à celui dans le calendrier
+                        int dayIndex = GetDayIndex(currentDayOfWeek);
+                        if (fields[dayIndex] == "1")
+                        {
+                            serviceIDs.Add(fields[0]);
+                        }
                     }
                 }
             }
@@ -88,5 +94,28 @@ public class StationClickHandler : MonoBehaviour
         }
 
         return serviceIDs.ToArray();
+    }
+
+    int GetDayIndex(string dayOfWeek)
+    {
+        switch (dayOfWeek)
+        {
+            case "monday":
+                return 1;
+            case "tuesday":
+                return 2;
+            case "wednesday":
+                return 3;
+            case "thursday":
+                return 4;
+            case "friday":
+                return 5;
+            case "saturday":
+                return 6;
+            case "sunday":
+                return 7;
+            default:
+                return -1; // Retourne -1 si le jour de la semaine n'est pas reconnu
+        }
     }
 }
