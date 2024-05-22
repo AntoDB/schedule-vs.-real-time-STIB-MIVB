@@ -65,7 +65,7 @@ public class StationClickHandler : MonoBehaviour
         }
 
         Dictionary<string, List<string>> tripIDsByServiceID = GetTripIDsByServiceID(currentServiceIDs);
-        Dictionary<int, List<string>> scheduleByHour = new Dictionary<int, List<string>>();
+        Dictionary<string, Dictionary<int, List<string>>> scheduleByStationAndHour = new Dictionary<string, Dictionary<int, List<string>>>();
         List<string> stationIDs = GetStationIDs(stationName);
         if (stationIDs.Count == 0)
         {
@@ -93,12 +93,17 @@ public class StationClickHandler : MonoBehaviour
                                 if (hour == 24) { hour = 0; }
                                 string minutesSeconds = departureTime.Substring(3); // Récupère les minutes et secondes
 
-                                if (!scheduleByHour.ContainsKey(hour))
+                                if (!scheduleByStationAndHour.ContainsKey(stationID))
                                 {
-                                    scheduleByHour[hour] = new List<string>();
+                                    scheduleByStationAndHour[stationID] = new Dictionary<int, List<string>>();
                                 }
 
-                                scheduleByHour[hour].Add(minutesSeconds);
+                                if (!scheduleByStationAndHour[stationID].ContainsKey(hour))
+                                {
+                                    scheduleByStationAndHour[stationID][hour] = new List<string>();
+                                }
+
+                                scheduleByStationAndHour[stationID][hour].Add(minutesSeconds);
                             }
                         }
                     }
@@ -111,10 +116,14 @@ public class StationClickHandler : MonoBehaviour
         }
 
         // Ajouter les horaires au conteneur d'affichage
-        foreach (var kvp in scheduleByHour)
+        foreach (var stationKvp in scheduleByStationAndHour)
         {
-            string hourText = kvp.Key + "h | " + string.Join(" ", kvp.Value);
-            AddTimetableEntry(hourText);
+            AddTimetableEntry("StationID " + stationKvp.Key);
+            foreach (var hourKvp in stationKvp.Value)
+            {
+                string hourText = hourKvp.Key + "h | " + string.Join(" ", hourKvp.Value);
+                AddTimetableEntry(hourText);
+            }
         }
     }
 
