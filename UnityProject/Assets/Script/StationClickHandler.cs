@@ -1,11 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-// For STIB-MIVB API
-using UnityEngine.Networking;
-using Newtonsoft.Json.Linq;
-using System;
 using System.IO; // Importation nécessaire pour File
 
 public class StationClickHandler : MonoBehaviour
@@ -26,14 +23,6 @@ public class StationClickHandler : MonoBehaviour
     void Start()
     {
         stationName = gameObject.name;
-
-        string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/stop-details-production.json");
-        stopDataDict = StopDataLoader.LoadStopData(filePath);
-
-        if (stopDataDict.Count == 0)
-        {
-            Debug.LogError("Stop data dictionary is empty. Check if the JSON file is correctly loaded and parsed.");
-        }
     }
 
     void OnMouseDown()
@@ -53,30 +42,51 @@ public class StationClickHandler : MonoBehaviour
 
     void DisplayScheduleInfo()
     {
-        // Example: This should be replaced with actual data fetching
-        string[] directions = { "Direction 1", "Direction 2" }; // Example directions
-        string[][] schedules = {
-            new string[] { "Train A: 5 min", "Train B: 10 min" },
-            new string[] { "Train C: 8 min", "Train D: 15 min" }
-        };
+        string[] currentServiceIDs = GetCurrentServiceIDs();
 
-        foreach (Transform child in scheduleContainer)
+        if (currentServiceIDs == null || currentServiceIDs.Length == 0)
         {
-            Destroy(child.gameObject); // Clear existing timetable entries
+            Debug.Log("No service IDs available for today.");
+            return;
         }
 
-        for (int i = 0; i < directions.Length; i++)
+        Debug.Log("Service IDs for today:");
+        foreach (string serviceID in currentServiceIDs)
         {
-            GameObject timetableEntry = Instantiate(timetablePrefab, scheduleContainer);
-            Text entryText = timetableEntry.GetComponent<Text>();
-            if (entryText != null)
+            Debug.Log(serviceID);
+        }
+    }
+
+    string[] GetCurrentServiceIDs()
+    {
+        string currentDate = DateTime.Now.ToString("yyyyMMdd");
+        List<string> serviceIDs = new List<string>();
+
+        try
+        {
+            Debug.Log("TEST");
+            string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/schedule_25-05-2024/calendar.txt");
+            string[] calendarLines = File.ReadAllLines(filePath);
+            foreach (string line in calendarLines)
             {
-                entryText.text = $"{directions[i]}:\n" + string.Join("\n", schedules[i]);
-            }
-            else
-            {
-                Debug.LogError("Text component not found on timetablePrefab.");
+                string[] fields = line.Split(',');
+                if (fields.Length >= 10)
+                {
+                    string startDate = fields[8];
+                    string endDate = fields[9];
+
+                    if (currentDate.CompareTo(startDate) >= 0 && currentDate.CompareTo(endDate) <= 0)
+                    {
+                        serviceIDs.Add(fields[0]);
+                    }
+                }
             }
         }
+        catch (Exception e)
+        {
+            Debug.LogError("Error reading calendar file: " + e.Message);
+        }
+
+        return serviceIDs.ToArray();
     }
 }
