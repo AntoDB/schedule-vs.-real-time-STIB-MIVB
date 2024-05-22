@@ -55,6 +55,7 @@ public class StationClickHandler : MonoBehaviour
 
     void DisplayScheduleInfo()
     {
+        ClearScheduleContainer();
         string[] currentServiceIDs = GetCurrentServiceIDs();
 
         if (currentServiceIDs == null || currentServiceIDs.Length == 0)
@@ -87,7 +88,9 @@ public class StationClickHandler : MonoBehaviour
                         {
                             if (tuple.Item2 == stationID)
                             {
-                                Debug.Log("Departure Time: " + tuple.Item1 + " for Stop ID: " + stationID);
+                                string departureTime = tuple.Item1;
+                                Debug.Log("Departure Time: " + departureTime + " for Stop ID: " + stationID);
+                                AddTimetableEntry(departureTime);
                             }
                         }
                     }
@@ -100,6 +103,27 @@ public class StationClickHandler : MonoBehaviour
         }
     }
 
+    void AddTimetableEntry(string departureTime)
+    {
+        GameObject timetableEntry = Instantiate(timetablePrefab, scheduleContainer);
+        Text timetableText = timetableEntry.GetComponent<Text>();
+        if (timetableText != null)
+        {
+            timetableText.text = departureTime;
+        }
+        else
+        {
+            Debug.LogError("Timetable prefab does not have a Text component.");
+        }
+    }
+
+    void ClearScheduleContainer()
+    {
+        foreach (Transform child in scheduleContainer)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 
     string[] GetCurrentServiceIDs()
     {
@@ -214,38 +238,6 @@ public class StationClickHandler : MonoBehaviour
         return tripIDsByServiceID;
     }
 
-    List<string> GetDepartureTimesByTripIDAndStopID(string tripID, string stopID)
-    {
-        List<string> departureTimes = new List<string>();
-
-        try
-        {
-            string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/schedule_25-05-2024/stop_times.txt");
-            string[] stopTimeLines = File.ReadAllLines(filePath);
-            foreach (string line in stopTimeLines)
-            {
-                string[] fields = line.Split(',');
-                if (fields.Length >= 4)
-                {
-                    string currentTripID = fields[0];
-                    string currentStopID = fields[3];
-                    string departureTime = fields[2];
-
-                    if (currentTripID == tripID && currentStopID == stopID)
-                    {
-                        departureTimes.Add(departureTime);
-                    }
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Error reading stop times file: " + e.Message);
-        }
-
-        return departureTimes;
-    }
-
     void IndexStopTimes(string filePath)
     {
         Indexer indexer = new Indexer();
@@ -286,5 +278,4 @@ public class StationClickHandler : MonoBehaviour
             return index;
         }
     }
-
 }
