@@ -43,7 +43,7 @@ public class StationClickHandler : MonoBehaviour
         DisplayStationInfo();
 
         Debug.Log("Station " + stationName + " clicked");
-        
+
         panelManager.OpenPanel();
     }
 
@@ -65,16 +65,13 @@ public class StationClickHandler : MonoBehaviour
         }
 
         Dictionary<string, List<string>> tripIDsByServiceID = GetTripIDsByServiceID(currentServiceIDs);
-
-        int entryIndex = 0; // Compteur pour suivre les entrées ajoutées
+        Dictionary<int, List<string>> scheduleByHour = new Dictionary<int, List<string>>();
 
         // Parcourir les tripIDs
         foreach (var kvp in tripIDsByServiceID)
         {
-            Debug.Log("Service ID: " + kvp.Key);
             foreach (string tripID in kvp.Value)
             {
-                Debug.Log("Trip ID: " + tripID);
                 List<string> stationIDs = GetStationIDs(stationName);
                 if (stationIDs.Count == 0)
                 {
@@ -91,9 +88,15 @@ public class StationClickHandler : MonoBehaviour
                             if (tuple.Item2 == stationID)
                             {
                                 string departureTime = tuple.Item1;
-                                Debug.Log("Departure Time: " + departureTime + " for Stop ID: " + stationID);
-                                AddTimetableEntry(departureTime, entryIndex);
-                                entryIndex++; // Incrémenter le compteur après chaque ajout
+                                int hour = int.Parse(departureTime.Split(':')[0]);
+                                string minutesSeconds = departureTime.Substring(3); // Récupère les minutes et secondes
+
+                                if (!scheduleByHour.ContainsKey(hour))
+                                {
+                                    scheduleByHour[hour] = new List<string>();
+                                }
+
+                                scheduleByHour[hour].Add(minutesSeconds);
                             }
                         }
                     }
@@ -104,9 +107,19 @@ public class StationClickHandler : MonoBehaviour
                 }
             }
         }
+
+        int entryIndex = 0; // Compteur pour suivre les entrées ajoutées
+
+        // Ajouter les horaires au conteneur d'affichage
+        foreach (var kvp in scheduleByHour)
+        {
+            string hourText = kvp.Key + "h | " + string.Join(" ", kvp.Value);
+            entryIndex++; // Incrémenter le compteur après chaque ajout
+            AddTimetableEntry(hourText, entryIndex);
+        }
     }
 
-    void AddTimetableEntry(string departureTime, int entryIndex)
+    void AddTimetableEntry(string entryText, int entryIndex)
     {
         GameObject timetableEntry = Instantiate(timetablePrefab, scheduleContainer);
         RectTransform entryTransform = timetableEntry.GetComponent<RectTransform>();
@@ -122,7 +135,7 @@ public class StationClickHandler : MonoBehaviour
         Text timetableText = timetableEntry.GetComponent<Text>();
         if (timetableText != null)
         {
-            timetableText.text = departureTime;
+            timetableText.text = entryText;
         }
         else
         {
