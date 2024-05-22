@@ -115,11 +115,15 @@ public class StationClickHandler : MonoBehaviour
             }
         }
 
-        // Ajouter les horaires au conteneur d'affichage
-        foreach (var stationKvp in scheduleByStationAndHour)
+        // Trier les stationIDs par ordre croissant
+        List<string> sortedStationIDs = new List<string>(scheduleByStationAndHour.Keys);
+        sortedStationIDs.Sort();
+
+        // Ajouter les horaires au conteneur d'affichage par stationID trié
+        foreach (var stationID in sortedStationIDs)
         {
-            AddTimetableEntry("StationID " + stationKvp.Key);
-            foreach (var hourKvp in stationKvp.Value)
+            AddTimetableEntry("StationID " + stationID);
+            foreach (var hourKvp in scheduleByStationAndHour[stationID])
             {
                 string hourText = hourKvp.Key + "h | " + string.Join(" ", hourKvp.Value);
                 AddTimetableEntry(hourText);
