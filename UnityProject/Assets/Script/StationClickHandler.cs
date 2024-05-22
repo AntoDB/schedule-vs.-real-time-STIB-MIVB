@@ -50,10 +50,16 @@ public class StationClickHandler : MonoBehaviour
             return;
         }
 
-        Debug.Log("Service IDs for today:");
-        foreach (string serviceID in currentServiceIDs)
+        Dictionary<string, List<string>> tripIDsByServiceID = GetTripIDsByServiceID(currentServiceIDs);
+
+        // Affichez les tripIDs
+        foreach (var kvp in tripIDsByServiceID)
         {
-            Debug.Log(serviceID);
+            Debug.Log("Service ID: " + kvp.Key);
+            foreach (string tripID in kvp.Value)
+            {
+                Debug.Log("Trip ID: " + tripID);
+            }
         }
     }
 
@@ -117,5 +123,40 @@ public class StationClickHandler : MonoBehaviour
             default:
                 return -1; // Retourne -1 si le jour de la semaine n'est pas reconnu
         }
+    }
+
+    Dictionary<string, List<string>> GetTripIDsByServiceID(string[] serviceIDs)
+    {
+        Dictionary<string, List<string>> tripIDsByServiceID = new Dictionary<string, List<string>>();
+
+        try
+        {
+            string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/schedule_25-05-2024/trips.txt");
+            string[] tripLines = File.ReadAllLines(filePath);
+            foreach (string line in tripLines)
+            {
+                string[] fields = line.Split(',');
+                if (fields.Length >= 3)
+                {
+                    string currentServiceID = fields[1];
+                    string tripID = fields[2];
+
+                    if (Array.Exists(serviceIDs, id => id == currentServiceID))
+                    {
+                        if (!tripIDsByServiceID.ContainsKey(currentServiceID))
+                        {
+                            tripIDsByServiceID[currentServiceID] = new List<string>();
+                        }
+                        tripIDsByServiceID[currentServiceID].Add(tripID);
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error reading trips file: " + e.Message);
+        }
+
+        return tripIDsByServiceID;
     }
 }
