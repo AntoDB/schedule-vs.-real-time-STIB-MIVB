@@ -67,6 +67,11 @@ public class StationClickHandler : MonoBehaviour
             foreach (string tripID in kvp.Value)
             {
                 Debug.Log("Trip ID: " + tripID);
+                List<string> departureTimes = GetDepartureTimesByTripID(tripID);
+                foreach (string departureTime in departureTimes)
+                {
+                    Debug.Log("Departure Time: " + departureTime);
+                }
             }
         }
 
@@ -116,6 +121,7 @@ public class StationClickHandler : MonoBehaviour
 
         return serviceIDs.ToArray();
     }
+
     List<string> GetStationIDs(string stationName)
     {
         List<string> stationIDs = new List<string>();
@@ -188,5 +194,36 @@ public class StationClickHandler : MonoBehaviour
         }
 
         return tripIDsByServiceID;
+    }
+
+    List<string> GetDepartureTimesByTripID(string tripID)
+    {
+        List<string> departureTimes = new List<string>();
+
+        try
+        {
+            string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/schedule_25-05-2024/stop_times.txt");
+            string[] stopTimeLines = File.ReadAllLines(filePath);
+            foreach (string line in stopTimeLines)
+            {
+                string[] fields = line.Split(',');
+                if (fields.Length >= 4)
+                {
+                    string currentTripID = fields[0];
+                    string departureTime = fields[2];
+
+                    if (currentTripID == tripID)
+                    {
+                        departureTimes.Add(departureTime);
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error reading stop times file: " + e.Message);
+        }
+
+        return departureTimes;
     }
 }
