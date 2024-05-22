@@ -23,6 +23,14 @@ public class StationClickHandler : MonoBehaviour
     void Start()
     {
         stationName = gameObject.name;
+
+        string filePath = Path.Combine(Application.dataPath, "Imports/stib_data/stop-details-production.json");
+        stopDataDict = StopDataLoader.LoadStopData(filePath);
+
+        if (stopDataDict.Count == 0)
+        {
+            Debug.LogError("Stop data dictionary is empty. Check if the JSON file is correctly loaded and parsed.");
+        }
     }
 
     void OnMouseDown()
@@ -60,6 +68,13 @@ public class StationClickHandler : MonoBehaviour
             {
                 Debug.Log("Trip ID: " + tripID);
             }
+        }
+
+        // Get station IDs from StopData
+        var stationIDs = GetStationIDs(stationName);
+        if (stationIDs.Count == 0)
+        {
+            Debug.LogError("No station IDs found for station: " + stationName);
         }
     }
 
@@ -100,6 +115,21 @@ public class StationClickHandler : MonoBehaviour
         }
 
         return serviceIDs.ToArray();
+    }
+    List<string> GetStationIDs(string stationName)
+    {
+        List<string> stationIDs = new List<string>();
+
+        foreach (var stop in stopDataDict.Values)
+        {
+            if (stop.name.fr == stationName && stop.id.StartsWith("8"))
+            {
+                stationIDs.Add(stop.id);
+            }
+        }
+
+        Debug.Log($"Station IDs for {stationName}: {string.Join(", ", stationIDs)}");
+        return stationIDs;
     }
 
     int GetDayIndex(string dayOfWeek)
