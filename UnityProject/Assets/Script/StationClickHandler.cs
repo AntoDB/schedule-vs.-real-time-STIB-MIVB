@@ -66,6 +66,8 @@ public class StationClickHandler : MonoBehaviour
 
         Dictionary<string, List<string>> tripIDsByServiceID = GetTripIDsByServiceID(currentServiceIDs);
 
+        int entryIndex = 0; // Compteur pour suivre les entrées ajoutées
+
         // Parcourir les tripIDs
         foreach (var kvp in tripIDsByServiceID)
         {
@@ -90,7 +92,8 @@ public class StationClickHandler : MonoBehaviour
                             {
                                 string departureTime = tuple.Item1;
                                 Debug.Log("Departure Time: " + departureTime + " for Stop ID: " + stationID);
-                                AddTimetableEntry(departureTime);
+                                AddTimetableEntry(departureTime, entryIndex);
+                                entryIndex++; // Incrémenter le compteur après chaque ajout
                             }
                         }
                     }
@@ -103,9 +106,19 @@ public class StationClickHandler : MonoBehaviour
         }
     }
 
-    void AddTimetableEntry(string departureTime)
+    void AddTimetableEntry(string departureTime, int entryIndex)
     {
         GameObject timetableEntry = Instantiate(timetablePrefab, scheduleContainer);
+        RectTransform entryTransform = timetableEntry.GetComponent<RectTransform>();
+        if (entryTransform != null)
+        {
+            entryTransform.anchoredPosition = new Vector2(entryTransform.anchoredPosition.x, entryTransform.anchoredPosition.y - (entryIndex * 27)); // Décaler chaque entrée de 27 pixels vers le bas
+        }
+        else
+        {
+            Debug.LogError("Timetable prefab does not have a RectTransform component.");
+        }
+
         Text timetableText = timetableEntry.GetComponent<Text>();
         if (timetableText != null)
         {
