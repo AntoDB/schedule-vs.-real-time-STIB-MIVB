@@ -67,19 +67,21 @@ public class StationClickHandler : MonoBehaviour
             foreach (string tripID in kvp.Value)
             {
                 Debug.Log("Trip ID: " + tripID);
-                List<string> departureTimes = GetDepartureTimesByTripID(tripID);
-                foreach (string departureTime in departureTimes)
+                List<string> stationIDs = GetStationIDs(stationName);
+                if (stationIDs.Count == 0)
                 {
-                    Debug.Log("Departure Time: " + departureTime);
+                    Debug.LogError("No station IDs found for station: " + stationName);
+                }
+
+                foreach (string stationID in stationIDs)
+                {
+                    List<string> departureTimes = GetDepartureTimesByTripIDAndStopID(tripID, stationID);
+                    foreach (string departureTime in departureTimes)
+                    {
+                        Debug.Log("Departure Time: " + departureTime);
+                    }
                 }
             }
-        }
-
-        // Get station IDs from StopData
-        var stationIDs = GetStationIDs(stationName);
-        if (stationIDs.Count == 0)
-        {
-            Debug.LogError("No station IDs found for station: " + stationName);
         }
     }
 
@@ -196,7 +198,7 @@ public class StationClickHandler : MonoBehaviour
         return tripIDsByServiceID;
     }
 
-    List<string> GetDepartureTimesByTripID(string tripID)
+    List<string> GetDepartureTimesByTripIDAndStopID(string tripID, string stopID)
     {
         List<string> departureTimes = new List<string>();
 
@@ -210,9 +212,10 @@ public class StationClickHandler : MonoBehaviour
                 if (fields.Length >= 4)
                 {
                     string currentTripID = fields[0];
+                    string currentStopID = fields[3];
                     string departureTime = fields[2];
 
-                    if (currentTripID == tripID)
+                    if (currentTripID == tripID && currentStopID == stopID)
                     {
                         departureTimes.Add(departureTime);
                     }
